@@ -1,0 +1,888 @@
+/*go to google fonts select catamaran font and copy import statement from there*/
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700|Grand+Hotel");
+/*700 is for headings and 400 for regular  text*/
+
+/*we apply global styles as they are resusable
+give faster development and some structureto our document*/
+/*we might have tpo overrite these values or add new values*/
+
+/*
+=============================================
+Variables
+/*
+===================
+these are mostly colors that we shall be using all throught
+the project
+====================
+*/
+/*clr-primary is name of the variable*/
+
+:root {
+  --clr-primary: #678e3e;
+  --clr-primary-light: #beed8c;
+  --clr-grey-darkest: #102a42;
+  --clr-grey-medium: #617d98;
+  --clr-grey-lightest: #f1f5f8;
+  --clr-white: #fff;
+
+  --ff-primary: "Catamaran", sans-serif;
+  --ff-secondary: "Grand Hotel", cursive;
+
+  --tansition: all 0.3 linear;
+  /*tansition for all properties is for 0.3 seconds*/
+
+  --spacing: 0.25rem;
+  /*spacing between words*/
+
+  --radius: 0.5rem;
+  /*radius for the images cards and form*/
+}
+/*we are using universal selector*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*styles applied to whole body*/
+body {
+  /*var stored in ff-primary is applied
+ which is "Catamaran",sans,serif*/
+
+  font-family: var(--ff-primary);
+  background: var(--clr-white);
+  color: var(--clr-grey-darkest);
+  /* font-color is darkest grey */
+  line-height: 1.5;
+  font-size: 0.875rem;
+  /*font size is 0.875rem which is 14 pixels*/
+
+  /*when we set up media query we shall be setting the font size for 
+  our bigger headings*/
+}
+
+a {
+  text-decoration: none;
+  /*to get rid of the annoying underline*/
+}
+
+img {
+  width: 100%;
+  /*spanning all across the entire container*/
+  display: block;
+}
+
+/*these are the styles for the smaller fonts oin the project because we are going to set up the media query*/
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  /*we are giving small line ht as we'll be giving greater font size*/
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5;
+}
+h4 {
+  font-size: 0.875rem;
+}
+/*this is going to be for both the small as well as the larger font as we are not changing this property in the media query*/
+p {
+  margin-bottom: 1.25rem;
+}
+
+/*NOW COMES OUR MEDIA QUERY*/
+@media screen and (min-width: 800px) {
+  /*for headings we are increasing our size*/
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  /*I would also like to increase my body size once I get to abigger screen
+  size*/
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*more global css*/
+/*
+=============
+navbar
+==============
+*/
+
+.nav-btn {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  font-size: 2.5rem;
+  color: var(--clr-primary);
+  /*nothing else should be hiding the button
+  hence z-index is 1*/
+  z-index: 1;
+  cursor: pointer;
+  /*as we are hovering over the button we should
+  see the cursor*/
+  /*=======================================*/
+  /*animation: name duration timing-function delay 
+  iteration-count direction fill-mode;
+  name is bounce
+    duration:2s
+    timing-function:ease
+    iteration-count:infinite
+    ===========================================*/
+  /*we are setting only some properties*/
+  animation: bounce 2s ease infinite;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--clr-white);
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  /*to have some distinction between the screen elements
+   and navbar we are adding box-shadow*/
+  box-shadow: 2px 0 2px rgba(0, 0, 0, 0.2);
+  /*hide navbar*/
+  transform: translateX(-100%);
+  transition: var(--tansition);
+}
+
+.showNav {
+  transform: translateX(0);
+}
+
+.navbar-header {
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.nav-close {
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: rgb(221, 61, 96);
+  transition: var(--tansition);
+}
+.nav-close:hover {
+  color: red;
+}
+
+/*to get rid of bullet pts in ul*/
+.nav-items {
+  list-style-type: none;
+}
+.nav-link {
+  display: block;
+  font-size: 1.5rem;
+  padding: 0.25rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: var(--spacing);
+  color: var(--clr-grey-darkest);
+  transition: var(--tansition);
+}
+
+.nav-link:hover {
+  background: var(--clr-primary-light);
+  color: var(--clr-primary);
+  padding-left: 1.5rem;
+  border-left: 0.25rem solid var(--clr-primary);
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    width: 30vw;
+    max-width: 20rem;
+  }
+}
+
+/*
+============
+animation
+============*/
+
+/*animation for navbar button*/
+@keyframes bounce {
+  /*here bounce is just a name*/
+  /*we are going to scale the button from 1 to 2
+   and then back to 1*/
+
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*animation for Explore button also called as banner button*/
+@keyframes show {
+  /*here show is just a name*/
+  /*we are going to scale the button from 1.5 to 2
+   and then back to 1*/
+
+  0% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  /*here slideFromRight is just a name*/
+  /*we are going to translate the heading
+   from right to left*/
+  /*this is for banner:heading 2*/
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-200px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateX(50px);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(0px);
+    /*go back to original*/
+    opacity: 1;
+  }
+}
+@keyframes slideFromLeft {
+  /*here slideFromRight is just a name*/
+  /*we are going to translate the heading
+   from left to right */
+  /*this is for banner:heading 1*/
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(200px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateX(-50px);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(0px);
+    /*go back to original*/
+    opacity: 1;
+  }
+}
+/*3 animations are added one for the button
+  and 2 others for the heading*/
+/*the button is going to be bouncing all the time
+  and the 2 texts are going to be sliding from the left
+   and from the right*/
+
+/*
+=============
+header
+==============
+*/
+.header {
+  min-height: 100vh;
+  /*2 dots are essential as styles.css is in CSS floder
+  we have to first leave the CSS folder and then find the 
+  image in the images folder*/
+
+  /*as our image is very bright we are 
+  adding a black color with some opacity
+  using linear gradient
+  0,0,0 rgb is for black and opacity is 0.6*/
+
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../images/main-bcg.jpeg") center/cover no-repeat fixed;
+
+  /*for banner we shall be using position:absolute
+in order to use position absolute 
+we need to have something with position relative
+if we would have no parent with position relative then we would 
+place it relative to the body we don't want that
+so we'll be setting 
+header as position:relative*/
+
+  position: relative;
+
+  /*animation*/
+  overflow-x: hidden;
+}
+.banner {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* we see that our banner is not exactly in the center
+  so we use translate to translate up and in left*/
+  transform: translate(-50%, -50%);
+}
+
+/*we had to add less CSS here as we
+had already set up the global styles*/
+
+.banner h2 {
+  font-family: var(--ff-secondary);
+  color: var(--clr-primary);
+
+  /*animation*/
+  /*animation: name duration timing-function delay
+   iteration-count direction fill-mode;
+   name:slideFromRight
+   duration:5s
+   ease-in-out
+   iteration count:1*/
+  animation: slideFromRight 5s ease-in-out 1;
+}
+
+.banner h1 {
+  text-transform: uppercase;
+  color: var(--clr-white);
+  margin-top: 1.25rem;
+  margin-bottom: 2rem;
+  /*animation*/
+  animation: slideFromLeft 5s ease-in-out 1;
+  /*everything else is same as slideFromRight*/
+}
+
+.btn {
+  text-transform: uppercase;
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  padding: 0.375rem 0.75rem;
+  /* for top and bottom padding is 0.75rem and for left right 1 rem*/
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: none;
+  transition: var(--transition);
+  /*there will be transition beacuse as I am hovering
+   the color of my button will change*/
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.banner-btn {
+  text-transform: uppercase;
+  background: var(--clr-primary);
+  color: var(--clr-white);
+
+  /* for top and bottom padding is 0.75rem and for left right 1 rem*/
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  font-weight: 700;
+  border: none;
+  transition: var(--transition);
+  /*there will be transition beacuse as I am hovering
+   the color of my button will change*/
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  outline: 0.125rem solid var(--clr-primary);
+  outline-offset: 0.25rem;
+  font-size: 1.25rem;
+  padding: 1rem 1.75rem;
+
+  /*animation*/
+  animation: show 5s linear 1;
+  overflow-x: hidden;
+  /*if we dont put overflowX as hidden we get a 
+  scroll bar horizontally during animation as the
+   page loads and it doesn't look good
+  */
+  /*animation: name duration timing-function delay iteration-count direction
+    fill-mode;*/
+  /*name of animation is show
+  duration is 5s
+  linear :way of animation(timing-function)
+  iteration count is 1*/
+}
+.btn:hover {
+  color: var(--clr-primary);
+  background: var(--clr-primary-light);
+}
+
+/*
+================================================================
+content-divider
+================================================================
+*/
+.content-divider {
+  height: 0.5rem;
+  /*we are going to have 3 colors in linear gradient*/
+  /*we'll go with primary color(green),yellow in the middle and then
+  again primary color*/
+  /*we'll also change default direction and apply to left*/
+  background: linear-gradient(
+    to left,
+    var(--clr-primary),
+    yellow,
+    var(--clr-primary)
+  );
+}
+/*
+================================================================
+Skills
+================================================================
+*/
+.skills {
+  background: var(--clr-grey-lightest);
+}
+.skill {
+  padding: 2.5rem 0;
+  text-align: center;
+}
+/*as we are hovering over the icon we shall be doing multiple things
+we'll be changing background,creating a box shadow*/
+
+.skill-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  transition: var(--tansition);
+  /*browser doesnt respect height and width also margin for span 
+  element hence span element*/
+  display: inline-block;
+  color: var(--clr-primary);
+}
+
+.skill-text {
+  /*add different color for skill text 
+we would want skill text tpo be lighter than heading text 
+but darker than background*/
+  color: var(--clr-grey-medium);
+  /*the text should not span all across the div
+  so we add width to it*/
+  max-width: 17rem;
+  max-height: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skill:hover {
+  background: var(--clr-white);
+  box-shadow: 0 2px var(--clr-primary);
+}
+
+/*as I am hovering over a skill what should happen to a skill icon*/
+/*we are lifting up the icon*/
+.skill:hover .skill-icon {
+  transform: translateY(-5px);
+}
+
+/*as we move to larger screens two column
+ and 4 column layout should be applied*/
+
+@media screen and (min-width: 576px) {
+  .skill {
+    /*for 2 column layout*/
+    float: left;
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /*for 4 column layout*/
+  .skill {
+    float: left;
+    width: 25%;
+  }
+}
+/*content after skills should be on a 
+new line and not wrapped in skills section*/
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.section-title h3 {
+  font-family: var(--ff-secondary);
+  color: var(--clr-primary);
+}
+
+.section-title {
+  margin-bottom: 3rem;
+}
+
+.section center {
+  padding: 4rem 0;
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1170px;
+}
+
+@media screen and (min-width: 992px) {
+  .section-center {
+    width: 95vw;
+    padding: 4rem 1rem;
+  }
+}
+/*
+=============================
+About
+=============================
+*/
+.about-img,
+.about-info {
+  padding: 2rem, 0;
+}
+.about-picture-container {
+  background: var(--clr-primary);
+  border: 0.5rem solid var(--clr-primary);
+  max-width: 30rem;
+  /*extra stuff*/
+  overflow: hidden;
+}
+
+.about-pic {
+  transition: var(--transition);
+}
+
+.about-picture-container:hover .about-pic {
+  opacity: 0.5;
+  transform: scale(1.2);
+}
+
+.about-text {
+  color: var(--clr-grey-medium);
+  max-width: 26rem;
+}
+
+@media screen and (min-width: 992px) {
+  /* for a small screen pic and info 
+  will be stacked one on top of each other
+  once we get to a bigger screen we have a two column layout*/
+
+  /*when we get to size of image as 992px there
+   will be no spacing in between*/
+  .about-img,
+  .about-info {
+    float: left;
+    width: 50%;
+  }
+  .about-info {
+    padding-left: 2rem;
+  }
+}
+/*
+=============================
+END About
+=============================
+*/
+/*
+=================================
+PRODUCTS
+=================================
+*/
+/*in products we are going to create 
+a 3 column layout for the products*/
+.products {
+  background: var(--clr-grey-lightest);
+}
+
+.products article {
+  padding: 2rem 0;
+}
+
+.product-text {
+  color: var(--clr-grey-medium);
+  /*we don't want the product spanning all across
+  hence we want to add some max width for that*/
+  max-width: 26rem;
+}
+
+.product-img {
+  border-radius: var(--radius);
+  margin-bottom: 2 rem;
+  height: 17rem;
+  /*once we add height our image is getting distorted
+  hence we add object fit property*/
+  object-fit: cover;
+}
+
+.product-price {
+  color: var(--clr-primary);
+}
+
+.product {
+  margin-bottom: 2 rem;
+}
+
+/*NOW WE'LL SET UP OUR COLUMN LAYOUT*/
+/*two column layout once we reach 768px*/
+@media screen and (min-width: 768px) {
+  .product {
+    float: left;
+    width: 50%;
+    padding-right: 2rem;
+    /*here we are using padding to set distance between the 2 images
+    in the next section we shall be using the margin*/
+  }
+}
+/*3 column layout once we reach 992px we want 3 column layout*/
+@media screen and (min-width: 992px) {
+  /*float and padding are set in the above property so
+  we just need to chenge the width for 3 column layout from 
+  50% to 33.33%*/
+  .product {
+    width: 33.3%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .products-info {
+    float: left;
+    width: 30%;
+  }
+
+  .products-inventory {
+    float: left;
+    width: 70%;
+  }
+  .product {
+    margin-bottom: 0;
+    padding: 0 1rem;
+  }
+}
+/*
+=================
+Services
+=================
+*/
+.services-title {
+  margin-top: 4rem;
+  /*margin-bottom is negative because
+  we already have some padding in section-center*/
+  margin-bottom: 0 rem;
+  text-align: center;
+}
+
+.service-card {
+  margin: 2rem 0;
+  background: var(--clr-grey-lightest);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  /*we want changes to happen over some time 
+  so we add transition property*/
+  transition: var(--tansition);
+}
+
+.service-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.service-img {
+  height: 17rem;
+  /*by changing height we are
+   distorting the image so we add
+   object-fit:cover*/
+  object-fit: cover;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  /*we dont want the bottom border to be rounded*/
+}
+
+.service-info {
+  text-align: center;
+  padding: 3rem 1rem 2.5rem 1rem;
+}
+
+.service-info p {
+  max-width: 20rem;
+  color: var(--clr-grey-medium);
+  margin: 0 auto;
+}
+
+.service-btn {
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  padding: 0.375rem 0.5rem;
+  border-radius: var(--radius);
+  font-weight: 400;
+  margin-top: 1.25rem;
+}
+
+/*now we shall be adding our column layout*/
+
+@media screen and (min-width: 768px) {
+  .service-card {
+    float: left;
+    /*we shall be using 45% for each card
+     and 5% for each margin*/
+    /*100%=max*/
+    width: 45%;
+    margin-right: 5%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .service-card {
+    width: 30%;
+    margin-right: 3.33%;
+  }
+}
+
+.service-img-container {
+  position: relative;
+}
+
+.service-icon {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  color: var(--clr-primary);
+  background: var(--clr-primary-light);
+  padding: 0.5rem 0.6rem;
+  /*icon should be round*/
+  border-radius: 50%;
+  transform: translate(-50%, 50%);
+  border: 1.25rem solid var(--clr-grey-lightest);
+}
+
+/*
+===========================
+Contact
+===========================
+*/
+.contact {
+  background: var(--clr-grey-lightest);
+}
+.contact-form,
+.contact-info {
+  margin: 1rem 0;
+}
+
+.contact-item {
+  margin-bottom: 1.75rem;
+}
+
+.contact-title {
+  color: var(--clr-primary);
+  font-weight: 400;
+}
+
+.contact-text {
+  text-transform: uppercase;
+}
+
+.contact-form {
+  border-radius: var(--radius);
+  text-align: center;
+  background: var(--clr-white);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+.contact-form:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  max-width: 35rem;
+  color: var(--clr-grey-medium);
+}
+.form-group {
+  padding: 1rem 1.5rem;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  margin-bottom: 1.25rem;
+  background: var(--clr-grey-lightest);
+  border-radius: var(--radius);
+  text-transform: uppercase;
+  letter-spacing: var(--spacing);
+}
+.form-control:placeholder {
+  font-family: var(--ff-primary);
+  color: var(--clr-grey-darkest);
+  letter-spacing: var(--spacing);
+  text-transform: uppercase;
+}
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+
+@media screen and (min-width: 992px) {
+  .contact-form,
+  .contact-info {
+    float: left;
+    width: 50%;
+  }
+}
+/*
+============================
+Footer
+=============================
+*/
+footer {
+  background: #222;
+  text-align: center;
+}
+.social-icon {
+  color: var(--clr-white);
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  transition: var(--tansition);
+}
+/*as we are hovering over the icon
+we are changing the color from white to green*/
+
+.social-icon:hover {
+  color: var(--clr-primary);
+}
+.footer-text {
+  margin-top: 1.25rem;
+  text-transform: uppercase;
+  color: var(--clr-white);
+  font-weight: 400;
+}
+.company {
+  color: var(--clr-primary);
+}

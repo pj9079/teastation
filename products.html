@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+ <title>
+  Tea Station||Products
+ </title>
+
+ <link rel="stylesheet" href="./fontawesome-free-5.12.1-web/css/all.min.css">
+ <link rel="stylesheet" href="./CSS/styles.css">
+ 
+</head>
+
+<body>
+ <!--nav button-->
+ <span class="nav-btn" id="nav-btn">
+  <i class="fas fa-bars">
+  </i>
+ </span>
+ <!--navbar-->
+ <!--class is going to be used for styling 
+   and id is going to be used for javascript
+ functionality-->
+ <!--opening and closing of navbar will be done by javascript-->
+ <nav class="navbar" id="navbar">
+  <div class="navbar-header">
+   <!--class is for styling and id is for using javascript
+   to close the navbar using the cross sign on it-->
+   <span class="nav-close" id="nav-close">
+    <i class="fas fa-times"></i>
+   </span>
+  </div>
+  <ul class="nav-items">
+   <li>
+    <a href="index.html" class="nav-link">home</a>
+   </li>
+   <li>
+    <a href="skills.html" class="nav-link">skills</a>
+   </li>
+   <li>
+    <a href="about.html" class="nav-link">about</a>
+   </li>
+   <li>
+    <a href="products.html" class="nav-link">products</a>
+   </li>
+  </ul>
+ </nav>
+ <!--header-->
+ <header class="header">
+
+  <!-- we are using semantic html for header-->
+  <!-- but you can also use div with a class of header-->
+  <!--reason for using semantic element header is that
+ it lets the browser and the developer know what we are creating-->
+
+  <div class="banner">
+   <!--"over one hundred flavours of is" h2-->
+   <!--"specially crafted tea" is h1-->
+   <!-- "explore" is a link styled as a button pointing to skills.html-->
+   <!--All our buttons have common style but 
+     explore button is bigger than others-->
+   <h2>Over one hundered flavours of</h2>
+
+   <h1>specially<br> crafted tea</h1>
+
+   <a href="skills.html" class="banner-btn">explore</a>
+
+  </div>
+ </header>
+ <!--end of header-->
+
+<!--PRODUCTS section-->
+<section class="products">
+ <div class="section-center clearfix">
+  <!--products info-->
+  <article class="products-info">
+   <!--section title-->
+   <div class="section-title">
+    <h2>Check Out </h2>
+    <h3>Our Products</h3>
+   </div>
+   <!-- end of section title-->
+   <p class="product-text">We provide a wide range of quality teas that are ethically sourced
+    from the finest tea estates, giving you premium, fine
+    quality loose teas and great tasting tea at affordable prices.</p>
+   <a href="products.html" class="btn">Inventory</a>
+  </article>
+  <!--
+        ============================================================
+      -->
+  <!--products inventory-->
+
+  <article class="products-inventory clearfix">
+   <!--1st single product-->
+   <div class="product">
+    <img src="./images/masalaTea.jpg" alt="masala tea" class="product-img">
+    <h4 class="product-title">Masala Tea</h4>
+    <h4 class="product-price">Rs 100</h4>
+   </div>
+   <!--end of product-->
+   <!--2nd single product-->
+   <div class="product">
+    <img src="./images/assamTea.jpg" alt="nilgiri tea" class="product-img">
+    <h4 class="product-title">Nilgiri Tea</h4>
+    <h4 class="product-price">Rs 95</h4>
+   </div>
+   <!--end of product-->
+   <!--3rd single product-->
+   <div class="product">
+    <img src="./images/green-tea.jpg" alt="green-tea" class="product-img">
+    <h4 class="product-title">Green Tea</h4>
+    <h4 class="product-price">Rs 110</h4>
+   </div>
+   <!--end of product-->
+  </article>
+</section>
+<!--end of PRODUCTS section-->
+
+ <footer>
+  <div class="section-center">
+   <div class="social-icons">
+    <!--social icon-->
+    <a href="#" class="social-icon">
+     <i class="fab fa-facebook">
+
+     </i>
+    </a>
+    <!--end of facebook social icon-->
+    <!--social icon-->
+    <a href="#" class="social-icon">
+     <i class="fab fa-instagram">
+
+     </i>
+    </a>
+    <!--end of intagram social icon-->
+    <!--social icon-->
+    <a href="#" class="social-icon">
+     <i class="fab fa-twitter">
+
+     </i>
+    </a>
+    <!--end of twitter social icon-->
+    <h4 class="footer-text">
+     &copy;<span>2021</span>
+     <!--&copy is for @-->
+
+     <span class="company">tea station</span>
+     all rights reserved
+    </h4>
+   </div>
+  </div>
+ </footer>
+ <script src="app.js"></script>
+ </body>
+ </html>

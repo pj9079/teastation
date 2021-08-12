@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+ <title>
+  Tea Station||About
+ </title>
+
+ <link rel="stylesheet" href="./fontawesome-free-5.12.1-web/css/all.min.css">
+ <link rel="stylesheet" href="./CSS/styles.css">
+
+
+</head>
+
+<body>
+ <!--nav button-->
+ <span class="nav-btn" id="nav-btn">
+  <i class="fas fa-bars">
+  </i>
+ </span>
+ <!--navbar-->
+ <!--class is going to be used for styling 
+   and id is going to be used for javascript
+ functionality-->
+ <!--opening and closing of navbar will be done by javascript-->
+ <nav class="navbar" id="navbar">
+  <div class="navbar-header">
+   <!--class is for styling and id is for using javascript
+   to close the navbar using the cross sign on it-->
+   <span class="nav-close" id="nav-close">
+    <i class="fas fa-times"></i>
+   </span>
+  </div>
+  <ul class="nav-items">
+   <li>
+    <a href="index.html" class="nav-link">home</a>
+   </li>
+   <li>
+    <a href="skills.html" class="nav-link">skills</a>
+   </li>
+   <li>
+    <a href="about.html" class="nav-link">about</a>
+   </li>
+   <li>
+    <a href="products.html" class="nav-link">products</a>
+   </li>
+  </ul>
+ </nav>
+ <!--header-->
+ <header class="header">
+ 
+  <!-- we are using semantic html for header-->
+  <!-- but you can also use div with a class of header-->
+  <!--reason for using semantic element header is that
+ it lets the browser and the developer know what we are creating-->
+ 
+  <div class="banner">
+   <!--"over one hundred flavours of is" h2-->
+   <!--"specially crafted tea" is h1-->
+   <!-- "explore" is a link styled as a button pointing to skills.html-->
+   <!--All our buttons have common style but 
+     explore button is bigger than others-->
+   <h2>Over one hundered flavours of</h2>
+ 
+   <h1>specially<br> crafted tea</h1>
+ 
+   <a href="skills.html" class="banner-btn">explore</a>
+ 
+  </div>
+ </header>
+ <!--end of header-->
+<!--ABOUT section-->
+
+<!--About section where we have a 2 column layout and 
+zoom effect for the image
+we'all also be adding some opacity and border for the image-->
+
+<section>
+ <!--we are creating clearfix because we are floating some elemnets on the left
+  and the content after that should not be affected -->
+ <div class="section center clearfix">
+  <!-- about-img-->
+  <br><br>
+  <article class="about-img">
+   <div class="about-picture-container">
+    <img src="./images/about-bcg.jpeg" alt="tea kettle" class="about-pic">
+   </div>
+  </article>
+
+
+  <!-- about-info-->
+  <article class="about-info">
+
+   <!--section title-->
+   <div class="section-title">
+    <h3>about our</h3>
+    <h2>tea station</h2>
+   </div>
+
+   <!--end of section title-->
+   <p class="about">The Tea Station is a privately-held company headquartered in Pune, India founded in 2011.
+    Today, Tea Station is enjoying steady growth in consumer packs available right from 50 gram to 5 Kgs. pack and
+    various
+    range such as Masala Tea, Nilgiri Tea, Green Tea etc. Today company holds enormous market
+    network with its availability in almost all foodservice, grocery stores, club stores, mass merchandisers, etc. </p>
+   <a href="about.html" class="btn">learn more</a>
+  </article>
+ </div>
+ <br>
+ <br>
+</section>
+<!--end of section title-->
+<!--END ABOUT section-->
+<footer>
+ <div class="section-center">
+  <div class="social-icons">
+   <!--social icon-->
+   <a href="#" class="social-icon">
+    <i class="fab fa-facebook">
+ 
+    </i>
+   </a>
+   <!--end of facebook social icon-->
+   <!--social icon-->
+   <a href="#" class="social-icon">
+    <i class="fab fa-instagram">
+ 
+    </i>
+   </a>
+   <!--end of intagram social icon-->
+   <!--social icon-->
+   <a href="#" class="social-icon">
+    <i class="fab fa-twitter">
+ 
+    </i>
+   </a>
+   <!--end of twitter social icon-->
+   <h4 class="footer-text">
+    &copy;<span>2021</span>
+    <!--&copy is for @-->
+ 
+    <span class="company">tea station</span>
+    all rights reserved
+   </h4>
+  </div>
+ </div>
+ </footer>
+ <script src="app.js"></script>
+ </body>
+ 
+ </html>
